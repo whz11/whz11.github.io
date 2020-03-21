@@ -141,7 +141,106 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1675 个字)
+                    3 分钟 读完 (大约 480 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/21/dfs/">dfs</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><blockquote>
+<p>深度优先搜索</p>
+</blockquote>
+<p>深度优先搜索算法（英语：Depth-First-Search，简称DFS）是一种用于遍历或搜索树或图的算法。 沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过或者在搜寻时结点不满足条件，搜索将回溯到发现节点v的那条边的起始节点。整个进程反复进行直到所有节点都被访问为止。属于盲目搜索,最糟糕的情况算法时间复杂度为O(!n)。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(参数)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(满足条件)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> <span class="built_in">step</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        判断边界</span><br><span class="line">        &#123;</span><br><span class="line">            相应操作</span><br><span class="line">        &#125;</span><br><span class="line">        尝试每一种可能</span><br><span class="line">        &#123;</span><br><span class="line">               满足check条件</span><br><span class="line">               标记</span><br><span class="line">               继续下一步dfs(<span class="built_in">step</span>+<span class="number">1</span>)</span><br><span class="line">               恢复初始状态（回溯的时候要用到）</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1、全排列问题</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span>  a[<span class="number">15</span>];</span><br><span class="line"><span class="keyword">char</span> re[<span class="number">15</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">15</span>];</span><br><span class="line"><span class="comment">//假设有n个字符要排列，把他们依次放到n个箱子中</span></span><br><span class="line"><span class="comment">//先要检查箱子是否为空，手中还有什么字符，把他们放进并标记。</span></span><br><span class="line"><span class="comment">//放完一次要恢复初始状态，当到n+1个箱子时，一次排列已经结束</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(step==n+<span class="number">1</span>)<span class="comment">//判断边界</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,re[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//遍历每一种情况</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i]==<span class="number">0</span>)<span class="comment">//check满足</span></span><br><span class="line">        &#123;</span><br><span class="line">            re[step]=a[i];</span><br><span class="line">            vis[i]=<span class="number">1</span>;<span class="comment">//标记</span></span><br><span class="line">            dfs(step+<span class="number">1</span>);<span class="comment">//继续搜索</span></span><br><span class="line">            vis[i]=<span class="number">0</span>;<span class="comment">//恢复初始状态</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));<span class="comment">//对存数据的数组分别初始化</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</span><br><span class="line">        n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);</span><br><span class="line">        dfs(<span class="number">1</span>);<span class="comment">//从第一个箱子开始</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vis;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cur==n) &#123;</span><br><span class="line">            res.push_back(vec);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">                vec[i]=nums[cur];</span><br><span class="line">                vis[i]=<span class="number">1</span>;</span><br><span class="line">                dfs(cur+<span class="number">1</span>,nums);</span><br><span class="line">                vis[i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">permute</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        n=nums.size();</span><br><span class="line">        vis=<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        vec=<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        dfs(<span class="number">0</span>,nums);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <span class="level-item has-text-grey">写于2020-03-21</span>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 85 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/21/springboot2/">springboot1</a>
+            
+        </h1>
+        <div class="content">
+            <p>##spring data jpa方法命名规则<br>如果命名不正确会出现</p>
+<p>Spring Data JPA: No property foo found for type Bar<br>No property user found for type</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String userName)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出实体类字段是userName,而repository却是findByName!改为findByUserName就好了</p>
+<p>参考<img src="https://blog.csdn.net/j080624/article/details/82559318" alt="d"></p>
+<p><img src="https://www.cnblogs.com/oxygenG/p/10057525.html" alt="d"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <span class="level-item has-text-grey">写于2020-03-21</span>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1683 个字)
                 </span>
                 
                 
@@ -275,7 +374,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            2
+                            4
                         </p>
                     </a>
                 </div>
@@ -299,7 +398,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            1
+                            2
                         </p>
                     </a>
                 </div>
@@ -416,7 +515,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/springboot/" style="font-size: 10px;">springboot</a>
+        <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
     </div>
 </div>
     
@@ -428,6 +527,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/21/dfs/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="dfs">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:25:08.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/dfs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">dfs</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/21/springboot2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="springboot1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:22:02.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/springboot2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">springboot1</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -484,7 +621,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -505,6 +642,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/springboot/">
                         <span class="tag">springboot</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="tag">算法</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -534,6 +678,44 @@
         
         <article class="media">
             
+            <a href="/2020/03/21/dfs/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="dfs">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:25:08.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/dfs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">dfs</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/21/springboot2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="springboot1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:22:02.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/springboot2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">springboot1</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/21/springboot1/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="springboot1">
@@ -587,7 +769,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -608,6 +790,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/springboot/">
                         <span class="tag">springboot</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="tag">算法</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

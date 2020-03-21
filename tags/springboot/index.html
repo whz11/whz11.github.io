@@ -151,7 +151,56 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1675 个字)
+                    几秒 读完 (大约 85 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/21/springboot2/">springboot1</a>
+            
+        </h1>
+        <div class="content">
+            <p>##spring data jpa方法命名规则<br>如果命名不正确会出现</p>
+<p>Spring Data JPA: No property foo found for type Bar<br>No property user found for type</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String userName)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出实体类字段是userName,而repository却是findByName!改为findByUserName就好了</p>
+<p>参考<img src="https://blog.csdn.net/j080624/article/details/82559318" alt="d"></p>
+<p><img src="https://www.cnblogs.com/oxygenG/p/10057525.html" alt="d"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <span class="level-item has-text-grey">写于2020-03-21</span>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1683 个字)
                 </span>
                 
                 
@@ -230,7 +279,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            2
+                            4
                         </p>
                     </a>
                 </div>
@@ -254,7 +303,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            1
+                            2
                         </p>
                     </a>
                 </div>
@@ -371,7 +420,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/springboot/" style="font-size: 10px;">springboot</a>
+        <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
     </div>
 </div>
     
@@ -383,6 +432,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/21/dfs/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="dfs">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:25:08.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/dfs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">dfs</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/21/springboot2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="springboot1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-21T08:22:02.000Z">2020-03-21</time></div>
+                    <a href="/2020/03/21/springboot2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">springboot1</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -439,7 +526,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -460,6 +547,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/springboot/">
                         <span class="tag">springboot</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="tag">算法</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
