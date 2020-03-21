@@ -20,6 +20,9 @@ textarea {
     max-width: 960px;
     width: 960px;
   }
+  .twoLine {
+    width: 80% !important;
+  }
 }
 @media screen and (min-width: 1472px) {
   .is-2-column .container {
