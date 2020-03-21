@@ -10,16 +10,16 @@
 <title>springboot1 - Hexo</title>
 
 
-    <meta name="description" content="##spring data jpa方法命名规则如果命名不正确会出现 Spring Data JPA: No property foo found for type BarNo property user found for type">
+    <meta name="description" content="spring data jpa方法命名规则 如果命名不正确会出现  Spring Data JPA: No property foo found for type BarNo property user found for type">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot1">
 <meta property="og:url" content="http://yoursite.com/2020/03/21/springboot2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##spring data jpa方法命名规则如果命名不正确会出现 Spring Data JPA: No property foo found for type BarNo property user found for type">
+<meta property="og:description" content="spring data jpa方法命名规则 如果命名不正确会出现  Spring Data JPA: No property foo found for type BarNo property user found for type">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-03-21T08:22:02.000Z">
-<meta property="article:modified_time" content="2020-03-21T08:28:42.224Z">
+<meta property="article:modified_time" content="2020-03-21T08:33:32.443Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 86 个字)
+                    几秒 读完 (大约 78 个字)
                 </span>
                 
                 
@@ -162,15 +162,17 @@
             
         </h1>
         <div class="content">
-            <p>##spring data jpa方法命名规则<br>如果命名不正确会出现</p>
+            <h2 id="spring-data-jpa方法命名规则"><a href="#spring-data-jpa方法命名规则" class="headerlink" title="spring data jpa方法命名规则"></a>spring data jpa方法命名规则</h2><blockquote>
+<p>如果命名不正确会出现</p>
+</blockquote>
 <p>Spring Data JPA: No property foo found for type Bar<br>No property user found for type</p>
 <a id="more"></a>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String userName)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以看出实体类字段是userName,而repository却是findByName!改为findByUserName就好了</p>
-<p>参考<img src="https://blog.csdn.net/j080624/article/details/82559318" alt="d"></p>
-<p><img src="https://www.cnblogs.com/oxygenG/p/10057525.html" alt="d"></p>
+<p>参考<a href="https://blog.csdn.net/j080624/article/details/82559318">d</a></p>
+<p><a href="https://www.cnblogs.com/oxygenG/p/10057525.html">https://www.cnblogs.com/oxygenG/p/10057525.html</a></p>
 
         </div>
         
@@ -369,6 +371,21 @@
 </div>
     
         
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#spring-data-jpa方法命名规则">
+        <span class="has-mr-6">1</span>
+        <span>spring data jpa方法命名规则</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
 
 
     
