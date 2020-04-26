@@ -7,21 +7,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>springboot5 - whz</title>
+<title>标签: 百宝箱 - whz</title>
 
 
-    <meta name="description" content="在springboot中，普通类注入dao层报错:Autowired members must be defined in the valid spring bean (@Component&#x2F;@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springboot5">
-<meta property="og:url" content="http://yoursite.com/2020/04/07/springboot5/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="whz">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/index.html">
 <meta property="og:site_name" content="whz">
-<meta property="og:description" content="在springboot中，普通类注入dao层报错:Autowired members must be defined in the valid spring bean (@Component&#x2F;@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-04-07T05:37:40.000Z">
-<meta property="article:modified_time" content="2020-04-07T05:49:33.775Z">
 <meta property="article:author" content="Hongzhou W">
-<meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +76,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo2.svg" alt="springboot5" height="36">
+                <img src="/images/logo2.svg" alt="whz" height="36">
 <span style="font-size:15px;display:inline-block;vertical-align:top;font-weight:600">宏州</span>
             
             </a>
@@ -115,10 +110,6 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -133,20 +124,31 @@
         <div class="container">
             <div class="columns">
             
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">百宝箱</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <span class="level-item has-text-grey">写于2020-04-07</span>
+                <span class="level-item has-text-grey">写于2020-04-09</span>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 395 个字)
+                    几秒 读完 (大约 89 个字)
                 </span>
                 
                 
@@ -155,99 +157,31 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                springboot5
+                <a class="has-link-black-ter" href="/2020/04/09/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/">网址记录</a>
             
         </h1>
         <div class="content">
-            <h2 id="在springboot中，普通类注入dao层报错"><a href="#在springboot中，普通类注入dao层报错" class="headerlink" title="在springboot中，普通类注入dao层报错:"></a>在springboot中，普通类注入dao层报错:</h2><p>Autowired members must be defined in the valid spring bean (@Component/@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.</p>
-<a id="more"></a>
-
-<h3 id="在该类中加入注解-Component可以解决"><a href="#在该类中加入注解-Component可以解决" class="headerlink" title="在该类中加入注解@Component可以解决"></a>在该类中加入注解@Component可以解决</h3><p><img src="/2020/04/07/springboot5/1.png" alt></p>
-<p>但是实际使用该类时还是报查询数据库空指针异常，仔细检查代码都没问题，数据库中也有相应数据，最后发现是调用该类时不是注入的而是new了实例。</p>
-<p><img src="/2020/04/07/springboot5/2.png" alt></p>
-<p>我一直是以为Mapper的注入出了问题，，结果恰恰不是，问题出在了该类上 ，因为在LotteryUtil里面是通过注入的方式获得Mapper的实例化对象的，所以LotteryUtil对象的获得也应该采用注入的方式（前后一致），这样才能得到这个类扫面后创建的Mapper的实例化对象（可参考源码）。如果是new 出来的LotteryUtli对象的话，它的中的@Autowired注解是不起作用的，因为自己new出来的对象不是spring容器中的，无法使用注入，因此Mapper对象当然为NULL啦。</p>
-<p><img src="/2020/04/07/springboot5/3.png" alt></p>
-<p><img src="/2020/04/07/springboot5/4.png" alt></p>
-<p>还有最让人头疼的就是，开发工具昨天抽筋了，明明之前已经写对了，但是编译不及时，依然报错…….重启之后再打开，莫名的又编译成功了，，所以，睡一觉还是有这么点好处的(玩笑话），clean之后再执行编译，其实也是可以的。</p>
-
+            <p>##记录好玩有用网址</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/springboot/" rel="tag">springboot</a>
+                <a class="button is-size-7 is-light" href="/2020/04/09/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/09/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">linux命令大全</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/03/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/">
-                <span class="level-item">java面向对象4</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 
@@ -367,27 +301,6 @@
 </div>
     
         
-
-    <div class="card widget column-left is-sticky" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#在springboot中，普通类注入dao层报错">
-        <span class="has-mr-6">1</span>
-        <span>在springboot中，普通类注入dao层报错:</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#在该类中加入注解-Component可以解决">
-        <span class="has-mr-6">1.1</span>
-        <span>在该类中加入注解@Component可以解决</span>
-        </a></li></ul></li></ul>
-            </div>
-        </div>
-    </div>
-
-
     
         <div class="card widget">
     <div class="card-content">
@@ -691,7 +604,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo2.svg" alt="springboot5" height="28">
+                    <img src="/images/logo2.svg" alt="whz" height="28">
                 
                 </a>
                 <p class="is-size-7">

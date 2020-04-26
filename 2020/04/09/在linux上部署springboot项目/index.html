@@ -10,14 +10,16 @@
 <title>在linux上部署springboot项目 - whz</title>
 
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="##springboot在linux中运行 ###单次运行  在idea中找到maven可视化界面，双击package打包jar文件  打开terminal，左上角shell-&gt;new remote connection-&gt;选sftp-&gt;user填root，下面填sftp root@ip地址（本人sftp root@47.99.205.75）-&gt;上传文件格式put 本地地址">
+<meta property="og:type" content="article">
 <meta property="og:title" content="在linux上部署springboot项目">
 <meta property="og:url" content="http://yoursite.com/2020/04/09/%E5%9C%A8linux%E4%B8%8A%E9%83%A8%E7%BD%B2springboot%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="whz">
+<meta property="og:description" content="##springboot在linux中运行 ###单次运行  在idea中找到maven可视化界面，双击package打包jar文件  打开terminal，左上角shell-&gt;new remote connection-&gt;选sftp-&gt;user填root，下面填sftp root@ip地址（本人sftp root@47.99.205.75）-&gt;上传文件格式put 本地地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-04-09T09:49:36.000Z">
-<meta property="article:modified_time" content="2020-04-09T09:51:38.962Z">
+<meta property="article:modified_time" content="2020-04-09T12:17:48.660Z">
 <meta property="article:author" content="Hongzhou W">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -144,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 1 个字)
+                    4 分钟 读完 (大约 527 个字)
                 </span>
                 
                 
@@ -157,7 +159,68 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
+            <p>##springboot在linux中运行</p>
+<p>###单次运行</p>
+<ul>
+<li><p>在idea中找到maven可视化界面，双击package打包jar文件</p>
+</li>
+<li><p>打开terminal，左上角shell-&gt;new remote connection-&gt;选sftp-&gt;user填root，下面填sftp root@ip地址（本人sftp <a href="mailto:root@47.99.205.75">root@47.99.205.75</a>）-&gt;上传文件格式put 本地地址  远程文件要放的地址（usr/lib）</p>
+<a id="more"></a>
+</li>
+<li><p>在linux中提前已经用Navicat创建数据库，只需</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar &#x2F;usr&#x2F;lib&#x2F;项目jar名.jar --spring.profiles.active&#x3D;prod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>即可在本地用ip地址：端口号访问</p>
+</li>
+<li><p>当前ssh窗口被锁定，可按CTRL + C打断程序运行，或直接关闭窗口，程序退出</p>
+</li>
+</ul>
+<p>以上方法在关闭进程后项目也停了</p>
+<p>###持续运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar &#x2F;usr&#x2F;lib&#x2F;项目jar名.jar &amp;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>nohup 意思是不挂断运行命令,当账户退出或终端关闭时,程序仍然运行</p>
+</li>
+<li><p>当用 nohup 命令执行作业时，缺省情况下该作业的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar XXX.jar &gt;temp.txt &amp;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>解释下 &gt;temp.txt</p>
+</li>
+<li><p>command &gt;out.file  </p>
+</li>
+<li><p>command &gt;out.file是将command的输出重定向到out.file文件，即输出内容不打印到屏幕上，而是输出到out.file文件中。</p>
+</li>
+<li><p>可通过jobs命令查看后台运行任务</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br></pre></td></tr></table></figure>
+
+<p>那么就会列出所有后台执行的作业，并且每个作业前面都有个编号。<br>如果想将某个作业调回前台控制，只需要 fg + 编号即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fg</span> 23</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过lsof查询进程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:端口号</span><br></pre></td></tr></table></figure>
+
+<p>如果提示command not found，先下载lsof</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lsof</span><br></pre></td></tr></table></figure>
+
+<p> a:显示所有程序<br> u:以用户为主的格式来显示<br> x:显示所有程序，不以终端机来区分</p>
+<p>注：</p>
+<p>　　用ps -def | grep查找进程很方便，最后一行总是会grep自己</p>
+<p>　　用grep -v参数可以将grep命令排除掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux|grep chat.js</span><br></pre></td></tr></table></figure>
+
+
+
+<p>结束nohup进程，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9  进程号(注意是进程号不是端口号)</span><br></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -220,6 +283,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/09/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">网址记录</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/">
@@ -275,7 +345,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            16
+                            20
                         </p>
                     </a>
                 </div>
@@ -299,7 +369,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            7
+                            9
                         </p>
                     </a>
                 </div>
@@ -418,7 +488,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/" style="font-size: 10px;">百宝箱</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
     </div>
 </div>
     
@@ -433,6 +503,82 @@
         
         <article class="media">
             
+            <a href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="查找和最小k对数">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-26T15:04:16.000Z">2020-04-26</time></div>
+                    <a href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">查找和最小k对数</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/21/%E6%A0%88/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="栈">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-21T11:54:28.000Z">2020-04-21</time></div>
+                    <a href="/2020/04/21/%E6%A0%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">栈</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/11/RestTemplate/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="RestTemplate">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-11T03:22:39.000Z">2020-04-11</time></div>
+                    <a href="/2020/04/11/RestTemplate/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RestTemplate</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/09/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="网址记录">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T12:12:59.000Z">2020-04-09</time></div>
+                    <a href="/2020/04/09/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网址记录</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/%E5%9C%A8linux%E4%B8%8A%E9%83%A8%E7%BD%B2springboot%E9%A1%B9%E7%9B%AE/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="在linux上部署springboot项目">
@@ -443,82 +589,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T09:49:36.000Z">2020-04-09</time></div>
                     <a href="/2020/04/09/%E5%9C%A8linux%E4%B8%8A%E9%83%A8%E7%BD%B2springboot%E9%A1%B9%E7%9B%AE/" class="title has-link-black-ter is-size-6 has-text-weight-normal">在linux上部署springboot项目</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="docker命令">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T09:49:17.000Z">2020-04-09</time></div>
-                    <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">docker命令</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/09/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="linux命令大全">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T07:32:11.000Z">2020-04-09</time></div>
-                    <a href="/2020/04/09/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">linux命令大全</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/07/springboot5/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="springboot5">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-07T05:37:40.000Z">2020-04-07</time></div>
-                    <a href="/2020/04/07/springboot5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">springboot5</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/03/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="java面向对象4">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-03T05:24:01.000Z">2020-04-03</time></div>
-                    <a href="/2020/04/03/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java面向对象4</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -543,7 +613,7 @@
                     <span class="level-item">四月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -587,6 +657,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/leetcode/">
+                        <span class="tag">leetcode</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">2</span>
@@ -603,13 +680,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/springboot/">
                         <span class="tag">springboot</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/">
                         <span class="tag">工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/">
+                        <span class="tag">百宝箱</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

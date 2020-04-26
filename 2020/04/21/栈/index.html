@@ -7,21 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>springboot5 - whz</title>
+<title>栈 - whz</title>
 
 
-    <meta name="description" content="在springboot中，普通类注入dao层报错:Autowired members must be defined in the valid spring bean (@Component&#x2F;@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.">
+    <meta name="description" content="栈的刷题记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot5">
-<meta property="og:url" content="http://yoursite.com/2020/04/07/springboot5/index.html">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/%E6%A0%88/index.html">
 <meta property="og:site_name" content="whz">
-<meta property="og:description" content="在springboot中，普通类注入dao层报错:Autowired members must be defined in the valid spring bean (@Component&#x2F;@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.">
+<meta property="og:description" content="栈的刷题记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-04-07T05:37:40.000Z">
-<meta property="article:modified_time" content="2020-04-07T05:49:33.775Z">
+<meta property="article:published_time" content="2020-04-21T11:54:28.000Z">
+<meta property="article:modified_time" content="2020-04-21T12:13:10.619Z">
 <meta property="article:author" content="Hongzhou W">
-<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo2.svg" alt="springboot5" height="36">
+                <img src="/images/logo2.svg" alt="栈" height="36">
 <span style="font-size:15px;display:inline-block;vertical-align:top;font-weight:600">宏州</span>
             
             </a>
@@ -140,13 +140,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <span class="level-item has-text-grey">写于2020-04-07</span>
+                <span class="level-item has-text-grey">写于2020-04-21</span>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 395 个字)
+                    2 分钟 读完 (大约 244 个字)
                 </span>
                 
                 
@@ -155,20 +155,20 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                springboot5
+                栈
             
         </h1>
         <div class="content">
-            <h2 id="在springboot中，普通类注入dao层报错"><a href="#在springboot中，普通类注入dao层报错" class="headerlink" title="在springboot中，普通类注入dao层报错:"></a>在springboot中，普通类注入dao层报错:</h2><p>Autowired members must be defined in the valid spring bean (@Component/@Service,etc.) less… (Ctrl+F1) Checks autowiring problems in a bean class.</p>
+            <p>栈的刷题记录</p>
 <a id="more"></a>
 
-<h3 id="在该类中加入注解-Component可以解决"><a href="#在该类中加入注解-Component可以解决" class="headerlink" title="在该类中加入注解@Component可以解决"></a>在该类中加入注解@Component可以解决</h3><p><img src="/2020/04/07/springboot5/1.png" alt></p>
-<p>但是实际使用该类时还是报查询数据库空指针异常，仔细检查代码都没问题，数据库中也有相应数据，最后发现是调用该类时不是注入的而是new了实例。</p>
-<p><img src="/2020/04/07/springboot5/2.png" alt></p>
-<p>我一直是以为Mapper的注入出了问题，，结果恰恰不是，问题出在了该类上 ，因为在LotteryUtil里面是通过注入的方式获得Mapper的实例化对象的，所以LotteryUtil对象的获得也应该采用注入的方式（前后一致），这样才能得到这个类扫面后创建的Mapper的实例化对象（可参考源码）。如果是new 出来的LotteryUtli对象的话，它的中的@Autowired注解是不起作用的，因为自己new出来的对象不是spring容器中的，无法使用注入，因此Mapper对象当然为NULL啦。</p>
-<p><img src="/2020/04/07/springboot5/3.png" alt></p>
-<p><img src="/2020/04/07/springboot5/4.png" alt></p>
-<p>还有最让人头疼的就是，开发工具昨天抽筋了，明明之前已经写对了，但是编译不及时，依然报错…….重启之后再打开，莫名的又编译成功了，，所以，睡一觉还是有这么点好处的(玩笑话），clean之后再执行编译，其实也是可以的。</p>
+<h2 id="155最小栈"><a href="#155最小栈" class="headerlink" title="155最小栈"></a>155最小栈</h2><p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<p>push(x) —— 将元素 x 推入栈中。<br>pop() —— 删除栈顶的元素。<br>top() —— 获取栈顶元素。<br>getMin() —— 检索栈中的最小元素。</p>
+<p>本题最主要考察检索最小元素，今天看到一个很好思路，每次入栈两个元素，一个是本身一个是当前栈最小值，相当于每次只要两两比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** initialize your data structure here. */</span></span><br><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(stack.isEmpty())&#123;</span><br><span class="line">        stack.push(x);</span><br><span class="line">        stack.push(x);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = stack.peek();</span><br><span class="line">        stack.push(x);</span><br><span class="line">        <span class="keyword">if</span>(tmp&lt;x)&#123;</span><br><span class="line">            stack.push(tmp);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            stack.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack.pop();</span><br><span class="line">    stack.pop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stack.get(stack.size()-<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stack.peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">   <span class="comment">//cpp版</span></span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">    MinStack() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            min=x&lt;s.top()?x:s.top();</span><br><span class="line">            s.push(x);</span><br><span class="line">            s.push(min);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            s.push(x);</span><br><span class="line">            s.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        s.pop();</span><br><span class="line">        s.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min=s.top(),top;</span><br><span class="line">        s.pop();</span><br><span class="line">        top=s.top();</span><br><span class="line">        s.push(min);</span><br><span class="line">        <span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.top();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -176,7 +176,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/springboot/" rel="tag">springboot</a>
+                    <a class="has-link-grey -link" href="/tags/leetcode/" rel="tag">leetcode</a>
                 </div>
             </div>
         </div>
@@ -232,16 +232,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/09/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">linux命令大全</span>
+                <span class="level-item">查找和最小k对数</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/03/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/">
-                <span class="level-item">java面向对象4</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/11/RestTemplate/">
+                <span class="level-item">RestTemplate</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -375,14 +375,10 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#在springboot中，普通类注入dao层报错">
+        <a class="is-flex" href="#155最小栈">
         <span class="has-mr-6">1</span>
-        <span>在springboot中，普通类注入dao层报错:</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#在该类中加入注解-Component可以解决">
-        <span class="has-mr-6">1.1</span>
-        <span>在该类中加入注解@Component可以解决</span>
-        </a></li></ul></li></ul>
+        <span>155最小栈</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -691,7 +687,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo2.svg" alt="springboot5" height="28">
+                    <img src="/images/logo2.svg" alt="栈" height="28">
                 
                 </a>
                 <p class="is-size-7">
