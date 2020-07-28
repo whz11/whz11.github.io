@@ -7,21 +7,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>栈 - whz</title>
+<title>标签: 简历 - whz</title>
 
 
-    <meta name="description" content="栈的刷题记录">
-<meta property="og:type" content="article">
-<meta property="og:title" content="栈">
-<meta property="og:url" content="http://yoursite.com/2020/04/21/%E6%A0%88/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="whz">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%AE%80%E5%8E%86/index.html">
 <meta property="og:site_name" content="whz">
-<meta property="og:description" content="栈的刷题记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-04-21T11:54:28.000Z">
-<meta property="article:modified_time" content="2020-04-21T12:13:10.619Z">
 <meta property="article:author" content="Hongzhou W">
-<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +76,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo2.svg" alt="栈" height="36">
+                <img src="/images/logo2.svg" alt="whz" height="36">
 <span style="font-size:15px;display:inline-block;vertical-align:top;font-weight:600">宏州</span>
             
             </a>
@@ -115,10 +110,6 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -133,20 +124,31 @@
         <div class="container">
             <div class="columns">
             
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">简历</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <span class="level-item has-text-grey">写于2020-04-21</span>
+                <span class="level-item has-text-grey">写于2020-07-28</span>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 244 个字)
+                    3 分钟 读完 (大约 460 个字)
                 </span>
                 
                 
@@ -155,99 +157,35 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                栈
+                <a class="has-link-black-ter" href="/2020/07/28/%E7%AE%80%E5%8E%86-md/">简历.md</a>
             
         </h1>
         <div class="content">
-            <p>栈的刷题记录</p>
-<a id="more"></a>
-
-<h2 id="155最小栈"><a href="#155最小栈" class="headerlink" title="155最小栈"></a>155最小栈</h2><p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<p>push(x) —— 将元素 x 推入栈中。<br>pop() —— 删除栈顶的元素。<br>top() —— 获取栈顶元素。<br>getMin() —— 检索栈中的最小元素。</p>
-<p>本题最主要考察检索最小元素，今天看到一个很好思路，每次入栈两个元素，一个是本身一个是当前栈最小值，相当于每次只要两两比较</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** initialize your data structure here. */</span></span><br><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(stack.isEmpty())&#123;</span><br><span class="line">        stack.push(x);</span><br><span class="line">        stack.push(x);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = stack.peek();</span><br><span class="line">        stack.push(x);</span><br><span class="line">        <span class="keyword">if</span>(tmp&lt;x)&#123;</span><br><span class="line">            stack.push(tmp);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            stack.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack.pop();</span><br><span class="line">    stack.pop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stack.get(stack.size()-<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stack.peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">   <span class="comment">//cpp版</span></span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">    MinStack() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            min=x&lt;s.top()?x:s.top();</span><br><span class="line">            s.push(x);</span><br><span class="line">            s.push(min);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            s.push(x);</span><br><span class="line">            s.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        s.pop();</span><br><span class="line">        s.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min=s.top(),top;</span><br><span class="line">        s.pop();</span><br><span class="line">        top=s.top();</span><br><span class="line">        s.push(min);</span><br><span class="line">        <span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.top();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+            <h1 id="王宏州简历"><a href="#王宏州简历" class="headerlink" title="王宏州简历"></a>王宏州简历</h1><hr>
+<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
+<li>手机：18857608326</li>
+<li>Email：<a href="mailto:1195687131@qq.com">1195687131@qq.com</a> （<code>虽然我觉得QQ邮箱无所谓，不过有些技术人员比较反感，建议用G</code>）</li>
+<li>QQ/微信号：1195687131</li></ul>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="button is-size-7 is-light" href="/2020/07/28/%E7%AE%80%E5%8E%86-md/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">查找和最小k对数</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/11/RestTemplate/">
-                <span class="level-item">RestTemplate</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 
@@ -293,7 +231,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            20
+                            14
                         </p>
                     </a>
                 </div>
@@ -317,7 +255,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            9
+                            7
                         </p>
                     </a>
                 </div>
@@ -367,23 +305,6 @@
 </div>
     
         
-
-    <div class="card widget column-left is-sticky" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#155最小栈">
-        <span class="has-mr-6">1</span>
-        <span>155最小栈</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
-
-
     
         <div class="card widget">
     <div class="card-content">
@@ -426,6 +347,50 @@
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="https://codepen.io/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">前端网站1</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">codepen.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://neumorphism.io/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">网站2</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">neumorphism.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://alteredqualia.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">网站3</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">alteredqualia.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://coolbackgrounds.io/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">网站4</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">coolbackgrounds.io</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -451,7 +416,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/" style="font-size: 10px;">百宝箱</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/" style="font-size: 10px;">百宝箱</a> <a href="/tags/%E7%AE%80%E5%8E%86/" style="font-size: 10px;">简历</a>
     </div>
 </div>
     
@@ -466,35 +431,16 @@
         
         <article class="media">
             
-            <a href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/" class="media-left">
+            <a href="/2020/07/28/%E7%AE%80%E5%8E%86-md/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="查找和最小k对数">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="简历.md">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-26T15:04:16.000Z">2020-04-26</time></div>
-                    <a href="/2020/04/26/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8Fk%E5%AF%B9%E6%95%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">查找和最小k对数</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/21/%E6%A0%88/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="栈">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-21T11:54:28.000Z">2020-04-21</time></div>
-                    <a href="/2020/04/21/%E6%A0%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">栈</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-28T03:25:50.000Z">2020-07-28</time></div>
+                    <a href="/2020/07/28/%E7%AE%80%E5%8E%86-md/" class="title has-link-black-ter is-size-6 has-text-weight-normal">简历.md</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -559,6 +505,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="docker命令">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T09:49:17.000Z">2020-04-09</time></div>
+                    <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">docker命令</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -571,12 +536,23 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2020/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2020/04/">
                 <span class="level-start">
                     <span class="level-item">四月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -587,7 +563,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -609,20 +585,6 @@
                     <a class="tags has-addons" href="/tags/docker/">
                         <span class="tag">docker</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/java/">
-                        <span class="tag">java</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/leetcode/">
-                        <span class="tag">leetcode</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -662,8 +624,8 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="tag">算法</span>
+                    <a class="tags has-addons" href="/tags/%E7%AE%80%E5%8E%86/">
+                        <span class="tag">简历</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -687,7 +649,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo2.svg" alt="栈" height="28">
+                    <img src="/images/logo2.svg" alt="whz" height="28">
                 
                 </a>
                 <p class="is-size-7">
