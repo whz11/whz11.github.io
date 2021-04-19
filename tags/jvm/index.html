@@ -7,21 +7,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>springboot4 - whz</title>
+<title>标签: jvm - whz</title>
 
 
-    <meta name="description" content="mybatis中使用Java8的日期LocalDate、LocalDateTime 在实体Entity里面，可以使用java.sql.Date、java.sql.Timestamp、java.util.Date来映射到数据库的date、timestamp、datetime等字段 但是，java.sql.Date、java.sql.Timestamp、java.util.Date这些类都不好用，很多">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springboot4">
-<meta property="og:url" content="http://yoursite.com/2020/03/21/springboot4/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="whz">
+<meta property="og:url" content="http://yoursite.com/tags/jvm/index.html">
 <meta property="og:site_name" content="whz">
-<meta property="og:description" content="mybatis中使用Java8的日期LocalDate、LocalDateTime 在实体Entity里面，可以使用java.sql.Date、java.sql.Timestamp、java.util.Date来映射到数据库的date、timestamp、datetime等字段 但是，java.sql.Date、java.sql.Timestamp、java.util.Date这些类都不好用，很多">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-03-21T13:45:33.000Z">
-<meta property="article:modified_time" content="2020-04-05T14:09:44.975Z">
 <meta property="article:author" content="Hongzhou W">
-<meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +76,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo2.svg" alt="springboot4" height="36">
+                <img src="/images/logo2.svg" alt="whz" height="36">
 <span style="font-size:15px;display:inline-block;vertical-align:top;font-weight:600">宏州</span>
             
             </a>
@@ -115,10 +110,6 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -133,20 +124,31 @@
         <div class="container">
             <div class="columns">
             
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">jvm</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <span class="level-item has-text-grey">写于2020-03-21</span>
+                <span class="level-item has-text-grey">写于2021-04-19</span>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 273 个字)
+                    10 小时 读完 (大约 92123 个字)
                 </span>
                 
                 
@@ -155,109 +157,32 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                springboot4
+                <a class="has-link-black-ter" href="/2021/04/19/jvm%E7%AC%94%E8%AE%B0/">jvm笔记</a>
             
         </h1>
         <div class="content">
-            <p>mybatis中使用Java8的日期LocalDate、LocalDateTime</p>
-<p>在实体Entity里面，可以使用java.sql.Date、java.sql.Timestamp、java.util.Date来映射到数据库的date、timestamp、datetime等字段</p>
-<p>但是，java.sql.Date、java.sql.Timestamp、java.util.Date这些类都不好用，很多方法都过时了。</p>
-<p>现在改用LocalDate、LocalTime、LocalDateTime 非常好用</p>
-<p>默认的情况下，在mybatis里面不支持java8的时间、日期。直接使用，会报如下错误</p>
-<a id="more"></a>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalStateException: No typehandler found for property createTime</span><br><span class="line">	at org.apache.ibatis.mapping.ResultMapping$Builder.validate(ResultMapping.java:151)</span><br><span class="line">	at org.apache.ibatis.mapping.ResultMapping$Builder.build(ResultMapping.java:140)</span><br><span class="line">	at org.apache.ibatis.builder.MapperBuilderAssistant.buildResultMapping(MapperBuilderAssistant.java:382)</span><br><span class="line">	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildResultMappingFromContext(XMLMapperBuilder.java:378)</span><br><span class="line">	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:280)</span><br><span class="line">	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:252)</span><br><span class="line">	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)</span><br><span class="line">	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)</span><br><span class="line">	... 81 common frames omitted</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>解决方法如下：</p>
-<p>直接加入如下依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-typehandlers-jsr310<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>以上仅在mybatis 3.4.0版本中测试有效</p>
-<p>如果使用的mybatis版本低于3.4.0，则还需要配置如下</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeHandlers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.InstantTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.LocalDateTimeTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.LocalDateTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.LocalTimeTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.OffsetDateTimeTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.OffsetTimeTypeHandler"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">handler</span>=<span class="string">"org.apache.ibatis.type.ZonedDateTimeTypeHandler"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeHandlers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+            <h1 id="JVM与JAVA体系结构"><a href="#JVM与JAVA体系结构" class="headerlink" title="JVM与JAVA体系结构"></a>JVM与JAVA体系结构</h1><p><img src="https://gitee.com/moxi159753/LearningNotes/raw/master/JVM/1_%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AF%87/1_JVM%E4%B8%8EJava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/images/image-20200704111417472.png" alt="image-20200704111417472"></p>
+<p>接触java后端一年，基本在java api和springboot方面深入，对于JVM一直是好奇又不敢靠近的态度，但是学习jvm对于今后的java学习之路肯定有很大的好处，如果我们把核心类库的API比做数学公式的话，那么Java虚拟机的知识就好比公式的推导过程。虽然这个先学公式再学推导的方式与高中正好相反，但是确实是比较适合我的，如果我先从底层开始学习，可能早弃坑了。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/springboot/" rel="tag">springboot</a>
+                <a class="button is-size-7 is-light" href="/2021/04/19/jvm%E7%AC%94%E8%AE%B0/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/31/mac%E6%8C%89%E9%94%AE%E5%9B%BE%E6%A0%87/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">mac按键图标</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/21/springboot3/">
-                <span class="level-item">springboot3</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 
@@ -303,7 +228,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            14
+                            10
                         </p>
                     </a>
                 </div>
@@ -327,7 +252,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            7
+                            8
                         </p>
                     </a>
                 </div>
@@ -377,8 +302,6 @@
 </div>
     
         
-
-
     
         <div class="card widget">
     <div class="card-content">
@@ -490,7 +413,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/" style="font-size: 10px;">百宝箱</a> <a href="/tags/%E7%AE%80%E5%8E%86/" style="font-size: 10px;">简历</a>
+        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E7%99%BE%E5%AE%9D%E7%AE%B1/" style="font-size: 10px;">百宝箱</a> <a href="/tags/%E7%AE%80%E5%8E%86/" style="font-size: 10px;">简历</a>
     </div>
 </div>
     
@@ -502,6 +425,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2021/04/19/jvm%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="jvm笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-04-19T08:38:09.000Z">2021-04-19</time></div>
+                    <a href="/2021/04/19/jvm%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">jvm笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -579,25 +521,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="docker命令">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-09T09:49:17.000Z">2020-04-09</time></div>
-                    <a href="/2020/04/09/docker%E5%91%BD%E4%BB%A4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">docker命令</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -608,6 +531,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/07/">
@@ -626,7 +560,7 @@
                     <span class="level-item">四月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -637,7 +571,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -663,6 +597,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/jvm/">
+                        <span class="tag">jvm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">2</span>
@@ -679,7 +620,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/springboot/">
                         <span class="tag">springboot</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -723,11 +664,11 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo2.svg" alt="springboot4" height="28">
+                    <img src="/images/logo2.svg" alt="whz" height="28">
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2020 Hongzhou W&nbsp;
+                &copy; 2021 Hongzhou W&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
